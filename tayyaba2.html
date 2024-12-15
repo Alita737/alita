@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Disorders Prevalence Chart</title>
+    <link rel="stylesheet" href="new.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+    background-image: url('https://plus.unsplash.com/premium_photo-1669867124806-f84dd1a9e87c?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover; /* This makes the image cover the entire background */
+    background-position: center; /* This centers the image */
+    background-repeat: no-repeat; /* This prevents the image from repeating */
+}
+#header {
+            background-color: #000000;
+            color: white;
+            padding: 20px;
+			text-align: center;
+        }
+		#header .logo{
+		font-family: 'Lobster', cursive;
+        font-size: 2.5em;
+		}
+
+        #header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        #header nav ul li a {
+          color: white;
+          text-decoration: none;
+          font-weight: 600;
+        }
+        #header nav ul li {
+		    display: inline;
+            margin: 0 15px;
+        }
+.chart-container {
+  width: 800px;
+  height: 300px;
+  margin: 20px auto;
+  padding :30px;
+}
+
+#prevalence-chart {
+  width: 100%;
+  height: 100%;
+}
+.chart-container {
+  width: 800px;
+  height: 300px;
+  margin: 20px auto;
+ padding :30px;
+}
+
+#demographics-chart {
+  width: 100%;
+  height: 100%;
+}
+.chart-container {
+  width: 800px;
+  height: 300px;
+  margin: 20px auto;
+ padding :30px;
+}
+
+#impact-chart {
+  width: 100%;
+  height: 100%;
+}
+.chart-container {
+  width: 800px;
+  height: 300px;
+  margin: 20px auto;
+ 
+}
+
+#pandemic-chart {
+  width: 100%;
+  height: 100%;
+}
+.accordion-container {
+  width: 700px;
+  margin: 20px auto;
+ padding :30px;
+}
+
+.accordion {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.accordion-header {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion-content {
+  padding: 20px;
+}
+.chart-container {
+  width: 800px;
+  margin: 20px auto;
+}
+.blog-posts-container {
+  width: 800px;
+  margin: 20px auto;
+padding: 30px;
+}
+
+.blog-post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.blog-post {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.blog-post h2 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.blog-post p {
+  font-size: 14px;
+  color: #666;
+}
+.table-container {
+  width: 800px;
+  margin: 20px auto;
+}
+
+#access-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#access-table th, #access-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+#access-table th {
+  background-color: #f0f0f0;
+}
+.blog-post {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.blog-post:hover {
+    transform: scale(1.05); /* Scale up the element */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+footer {
+    background-color: #4a90e2;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="logo">Mental Health And Wellness</div>
+        <nav>
+            <ul>
+                <li><a href="file:///C:/xampp/htdocs/mental_health_wellness/index.html" target="_blank">Home</a></li>
+                <li><a href="file:///C:/xampp/htdocs/mental_health_wellness/about.html" target="_blank">About Us</a></li>
+                <li><a href="file:///C:/xampp/htdocs/mental_health_wellness/blogs.html" target="_blank">Blogs</a></li>
+                <li><a href="#statistics" target="_blank">Statistics</a></li>
+                <li><a href="file:///C:/xampp/htdocs/mental_health_wellness/resources.html" target="_blank">Resources</a></li>
+               <li><a href="file:///C:/xampp/htdocs/mental_health_wellness/activities.html" target="_blank">Wellness Activities</a></li>
+                <li><a href="file:///C:/xampp/htdocs/mental_health_wellness/contact.html" target="_blank">Contact Us</a></li>
+                
+                
+            </ul>
+        </nav>
+    </div>
+<h1 style="text-align: center">Mental Health Statistics:Insights And Statitics</h1>
+
+<div class="chart-container">
+    <h2>Prevalence of Mental Health Disorders</h2>
+  <canvas id="prevalence-chart"></canvas>
+</div>
+    <div class="chart-container">
+        <h2>Demographics and Mental Health</h2>
+  <canvas id="demographics-chart"></canvas>
+</div>
+    <div class="chart-container">
+        <h2>Impact of Mental Health Issues</h2>
+  <canvas id="impact-chart"></canvas>
+</div>
+    <div class="chart-container">
+        <h2>Mental Health During the Pandemic</h2>
+  <canvas id="pandemic-chart"></canvas>
+</div>
+    <div class="accordion-container">
+  <div class="accordion">
+    <div class="accordion-header">
+      <h2>Mental Health Resources</h2>
+    </div>
+    <div class="accordion-content">
+      <!-- Resources will be populated here -->
+    </div>
+  </div>
+</div>
+    <div class="chart-container">
+        <h2>Mental Health Issues</h2>
+  <canvas id="mental-health-chart"></canvas>
+</div>
+    <div class="blog-posts-container">
+        <h2>Mental Health Guidance</h2>
+  <div class="blog-post-grid">
+    <!-- Blog posts will be populated here -->
+  </div>
+</div>
+<div class="table-container">
+    <h2>Access to Mental Health Services</h2>
+  <table id="access-table">
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Access to Mental Health Services (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Data will be populated here -->
+    </tbody>
+  </table>
+</div>
+
+     <footer>
+        <p>&copy; 2023 Mental Health and Wellness. All rights reserved.</p>
+    </footer>
+    <script>
+        const prevalenceData = {
+            labels: ['Depression', 'Anxiety Disorders', 'Bipolar Disorder'],
+            datasets: [{
+                label: 'Prevalence of Mental Health Disorders',
+                data: [264, 284, 45],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        const prevalenceChart = new Chart(document.getElementById('prevalence-chart'), {
+            type: 'pie',
+            data: prevalenceData,
+            options: {
+                title: {
+                    display: true,
+                    text: 'Prevalence of Mental Health Disorders'
+                }
+            }
+        });
+        const demographicsData = {
+  labels: ['15-24 years', '25-44 years', '45-64 years', '65+ years'],
+  datasets: [{
+    label: 'Anxiety or Depression',
+    data: [20, 30, 25, 15],
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgba(255, 99, 132, 1)',
+    borderWidth: 1
+  }, {
+    label: 'Stress-Related Disorders',
+    data: [0, 30, 0, 0],
+    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    borderColor: 'rgba(54, 162, 235, 1)',
+    borderWidth: 1
+  }, {
+    label: 'Depression',
+    data: [0, 0, 25, 0],
+    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+    borderColor: 'rgba(255, 206, 86, 1)',
+    borderWidth: 1
+  }, {
+    label: 'Dementia or Related Disorders',
+    data: [0, 0, 0, 15],
+    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+    borderColor: 'rgba(75, 192, 192, 1)',
+    borderWidth: 1
+  }]
+};
+
+const demographicsChart = new Chart(document.getElementById('demographics-chart'), {
+  type: 'bar',
+  data: demographicsData,
+  options: {
+    title: {
+      display: true,
+      text: 'Demographics and Mental Health'
+    },
+    scales: {
+      yAxes: [{
+        stacked: true
+      }]
+    }
+  }
+});
+        const impactData = {
+  labels: ['2000', '2010', '2020'],
+  datasets: [{
+    label: 'Suicide Rates (Per 100,000 people)',
+    data: [14.2, 12.6, 13.1],
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgba(255, 99, 132, 1)',
+    borderWidth: 1
+  }]
+};
+
+const impactChart = new Chart(document.getElementById('impact-chart'), {
+  type: 'line',
+  data: impactData,
+  options: {
+    title: {
+      display: true,
+      text: 'Impact of Mental Health Issues'
+    },
+    scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Suicide Rates (Per 100,000 people)'
+        }
+      }]
+    }
+  }
+});
+        const pandemicData = {
+  labels: ['Pre-Pandemic', 'During Pandemic'],
+  datasets: [{
+    label: 'Anxiety Rates',
+    data: [8, 25],
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgba(255, 99, 132, 1)',
+    borderWidth: 1
+  }, {
+    label: 'Depression Rates',
+    data: [6, 12],
+    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    borderColor: 'rgba(54, 162, 235, 1)',
+    borderWidth: 1
+  }]
+};
+
+const pandemicChart = new Chart(document.getElementById('pandemic-chart'), {
+  type: 'bar',
+  data: pandemicData,
+  options: {
+    title: {
+      display: true,
+      text: 'Mental Health During the Pandemic'
+    },
+    scales: {
+      yAxes: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'Rates (%)'
+        }
+      }]
+    }
+  }
+});
+        const resources = [
+  { title: 'National Alliance on Mental Illness (NAMI)', link: 'https://www.nami.org/' },
+  { title: 'American Psychological Association (APA)', link: 'https://www.apa.org/' },
+  { title: 'Mental Health America', link: 'https://www.mhanational.org/' }
+];
+
+const accordionContent = document.querySelector('.accordion-content');
+
+resources.forEach((resource) => {
+  const resourceElement = document.createElement('p');
+  const linkElement = document.createElement('a');
+
+  linkElement.textContent = resource.title;
+  linkElement.href = resource.link;
+
+  resourceElement.appendChild(linkElement);
+  accordionContent.appendChild(resourceElement);
+});
+        const ctx = document.getElementById('mental-health-chart').getContext('2d');
+const chart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['Anxiety', 'Depression', 'Bipolar Disorder', 'Schizophrenia'],
+    datasets: [{
+      label: 'Prevalence (%)',
+      data: [19.1, 14.8, 2.6, 1.1],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+        const blogPosts = [
+  {
+    title: 'Mental Health Awareness',
+    image: 'https://images.unsplash.com/photo-1633362432262-3c4a6377409a?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    description: 'Mental health awareness is crucial for our well-being.'
+  },
+  {
+    title: 'The Importance of Self-Care',
+    image: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    description: 'Self-care is essential for maintaining good mental health.'
+  },
+  {
+    title: 'Breaking the Stigma Around Mental Health',
+    image: 'https://plus.unsplash.com/premium_photo-1661401946599-46413906701b?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    description: 'We need to break the stigma around mental health and encourage open conversations.'
+  },
+  {
+    title: 'Mental Health in the Workplace',
+    image: 'https://plus.unsplash.com/premium_photo-1661597024852-4d4105b36576?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D',
+    description: 'Mental health in the workplace is a growing concern.'
+  },
+  {
+    title: 'The Benefits of Mindfulness',
+    image: 'https://plus.unsplash.com/premium_photo-1702599000793-83ad96ddcf65?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    description: 'Mindfulness has numerous benefits for our mental health.'
+  },
+  {
+    title: 'Overcoming Anxiety and Depression',
+    image: 'https://plus.unsplash.com/premium_photo-1661860546062-1e02de457d74?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    description: 'Overcoming anxiety and depression requires patience, support, and self-care.'
+  }
+];
+
+const blogPostGrid = document.querySelector('.blog-post-grid');
+
+blogPosts.forEach((post) => {
+  const blogPost = document.createElement('div');
+  blogPost.classList.add('blog-post');
+
+  const image = document.createElement('img');
+  image.src = post.image;
+  blogPost.appendChild(image);
+
+  const title = document.createElement('h2');
+  title.textContent = post.title;
+  blogPost.appendChild(title);
+
+  const description = document.createElement('p');
+  description.textContent = post.description;
+  blogPost.appendChild(description);
+
+  blogPostGrid.appendChild(blogPost);
+});
+const accessData = [
+  { country: 'USA', access: 75 },
+  { country: 'Canada', access: 80 },
+  { country: 'UK', access: 70 },
+  { country: 'Australia', access: 85 },
+  { country: 'Germany', access: 65 }
+];
+
+const accessTable = document.getElementById('access-table');
+const tbody = accessTable.tBodies[0];
+
+accessData.forEach((data) => {
+  const row = document.createElement('tr');
+  const countryCell = document.createElement('td');
+  const accessCell = document.createElement('td');
+
+  countryCell.textContent = data.country;
+  accessCell.textContent = `${data.access}%`; // Fixed template literal syntax
+
+  row.appendChild(countryCell);
+  row.appendChild(accessCell);
+  tbody.appendChild(row);
+});
+      </script>
+</body>
+</html>
